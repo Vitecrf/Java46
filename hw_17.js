@@ -62,6 +62,7 @@ class WageEmployee extends Employee{
 }
 
 const person4 = new WageEmployee(126, 'Asaf', 1000, 10, 100);
+console.log(person4.computeSalary())
 
 const persons = [
     new Child(100, 'Olya', 'Shalom'),
@@ -77,12 +78,13 @@ function countOfPersonType(persons, type) {
     console.log(a)
 }
 countOfPersonType(persons, 'WageEmployee');
+
 function computeSalaryBudget(persons) {
     const res = persons.reduce((acc, index) => {
-        if(index.constructor.name === 'WageEmployee')
+        if(index.computeSalary)
         {
-            let res = index.computeSalary();
-            acc = acc + res;
+            // let res = index.computeSalary();
+            acc = acc + index.computeSalary();
         }
         return acc;
     }, 0)
